@@ -26,6 +26,7 @@ public class Order implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	// atributos
 	private Long id;
 	private String address;
 	private Double latitude;
@@ -37,9 +38,10 @@ public class Order implements Serializable {
 	@JoinTable (name = "tb_order_product",
 			joinColumns = @JoinColumn(name = "order_id"),
 			inverseJoinColumns = @JoinColumn(name = "product_id"))
+	//associação;
+	private Set<Product> products = new HashSet<>();
 	
-	private Set<Product> procuts = new HashSet<>();
-	
+	// constructors 
 	public Order() {
 		
 	}
@@ -102,8 +104,8 @@ public class Order implements Serializable {
 		this.status = status;
 	}
 
-	public Set<Product> getProcuts() {
-		return procuts;
+	public Set<Product> getProducts() {
+		return products;
 	}
 
 	@Override
