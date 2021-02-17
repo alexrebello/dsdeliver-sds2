@@ -1,5 +1,5 @@
 package com.devsuperior.dsdeliver.entities;
 
-public enum OrderStatus {
+public enum OrderStatus {	
 	PENDING, DELIVERED;
 }

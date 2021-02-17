@@ -13,13 +13,17 @@ import com.devsuperior.dsdeliver.repositories.ProductRepository;
 
 @Service
 public class ProductService {
-	
-	@Autowired;
+
+	@Autowired
 	private ProductRepository repository;
 	
+	/*public ProductService(ProductRepository repository ) {
+		this.repository = repository;
+	}*/
+	
 	@Transactional(readOnly = true)
-	public List<ProductDTO> findAll(){
-		List<Product> list = repository.findAll();
+	public List<ProductDTO> findAll() {
+		List<Product> list = repository.findAllByOrderByNameAsc();
 		return list.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
 	}
 }

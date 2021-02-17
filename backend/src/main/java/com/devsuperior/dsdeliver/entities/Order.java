@@ -1,7 +1,5 @@
 package com.devsuperior.dsdeliver.entities;
 
-
-
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
@@ -19,31 +17,25 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_order")
 public class Order implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	// atributos
 	private Long id;
 	private String address;
 	private Double latitude;
 	private Double longitude;
 	private Instant moment;
 	private OrderStatus status;
-	
+
 	@ManyToMany
 	@JoinTable (name = "tb_order_product",
 			joinColumns = @JoinColumn(name = "order_id"),
 			inverseJoinColumns = @JoinColumn(name = "product_id"))
-	//associação;
 	private Set<Product> products = new HashSet<>();
 	
-	// constructors 
 	public Order() {
-		
 	}
 
 	public Order(Long id, String address, Double latitude, Double longitude, Instant moment, OrderStatus status) {
@@ -132,8 +124,6 @@ public class Order implements Serializable {
 			return false;
 		return true;
 	}
-
 	
 	
-
 }

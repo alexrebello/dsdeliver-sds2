@@ -13,7 +13,8 @@ public class ProductDTO implements Serializable {
 	private String description;
 	private String imageUri;
 	
-	public ProductDTO() {}
+	public ProductDTO() {
+	}
 	
 	public ProductDTO(Long id, String name, Double price, String description, String imageUri) {
 		this.id = id;
@@ -70,5 +71,4 @@ public class ProductDTO implements Serializable {
 	public void setImageUri(String imageUri) {
 		this.imageUri = imageUri;
 	}
-		
 }
