@@ -51,6 +51,13 @@ public class OrderService {
 		order = repository.save(order);
 		return new OrderDTO(order);
 	}
-	
-	
+
+	@Transactional
+	public OrderDTO setPending(Long id) {
+		Order order = repository.getOne(id);
+		order.setStatus(OrderStatus.PENDING);
+		order = repository.save(order);
+		return new OrderDTO(order);
+	}
+
 }
